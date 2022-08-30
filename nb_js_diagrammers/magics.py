@@ -185,23 +185,23 @@ class JSdiagrammerMagics(Magics):
     @magic_arguments.argument(
         "--height", "-h", default="300", help="IFrame height."
     )
-    @magic_arguments.argument(
-        "--file", "-f", default = None
-    )
+#     @magic_arguments.argument(
+#         "--file", "-f", default = None
+#     )
     def wavedrom_magic(self, line, cell):
         "Send code to flowchart.js."
         args = magic_arguments.parse_argstring(self.mermaid_magic, line)
-        if not args.file:
+        if not args.outfile:
             diagram = JSDiagram({"src":cell}, TEMPLATE_WAVEDROM,
                                       height=args.height)
         else:
-            with open(args.file, "r") as f:
+            with open(args.outfile, "r") as f:
                 cell = f.read()
             diagram = JSDiagram({"src":cell}, TEMPLATE_WAVEDROM,
                                       height=args.height)        
-        if args.outfile:
-            diagram.save_html(args.outfile)
-            return self.local_file_display(args.outfile, args.height) 
+#         if args.outfile:
+#             diagram.save_html(args.outfile)
+#             return self.local_file_display(args.outfile, args.height) 
         return diagram
         #return js_ui({"src":cell}, TEMPLATE_WAVEDROM,
         #             height=args.height, out_fn=args.outfile)
