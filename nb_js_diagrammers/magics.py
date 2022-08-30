@@ -185,7 +185,7 @@ class JSdiagrammerMagics(Magics):
     @magic_arguments.argument(
         "--height", "-h", default="300", help="IFrame height."
     )
-    @magic_argument.argument(
+    @magic_arguments.argument(
         "--file", "-f", default = None
     )
     def wavedrom_magic(self, line, cell):
