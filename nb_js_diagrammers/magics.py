@@ -16,7 +16,7 @@ from .mermaid import TEMPLATE_MERMAIDJS
 from pyflowchart import Flowchart
 
 def js_ui(data, template, out_fn = None, out_path='.',
-          width="1000%", height="", display=True, **kwargs):
+          width="100%", height="", display=True, **kwargs):
     """Generate an IFrame containing a templated javascript package."""
     if not out_fn:
         out_fn = Path(f"{uuid.uuid4()}.html")
@@ -37,7 +37,7 @@ def js_ui(data, template, out_fn = None, out_path='.',
     return filepath
 
 class JSDiagram:
-    def __init__(self, data, template, width="1000%", height=None, ratio=1):
+    def __init__(self, data, template, width="100%", height=None, ratio=1):
         self.width = width
         self.height = height
         self.ratio = ratio
