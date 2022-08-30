@@ -197,6 +197,8 @@ class JSdiagrammerMagics(Magics):
         else:
             with open(args.outfile, "r") as f:
                 cell = f.read()
+           print(cell)
+           print(args.outfile)
             diagram = JSDiagram({"src":cell}, TEMPLATE_WAVEDROM,
                                       height=args.height)        
 #         if args.outfile:
